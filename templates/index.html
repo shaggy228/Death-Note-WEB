@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Death Note</title>
     <link rel="stylesheet" href="/static/style.css">
-    <link rel="icon" href="../static/death_note_icon.png">
+    <link rel="icon" href="/static/death_note_icon.png">
 </head>
 <body>
     <div class="death-note-container">
@@ -13,12 +13,17 @@
         
         <h1>DEATH NOTE</h1>
         
+        <!-- Блок с текущим временем -->
+        <div class="current-time">
+            Текущее время: {{.CurrentTime}}
+        </div>
+        
         <div class="death-info">
             <span>Name: {{ .Name }}</span>
-            {{if eq .Cause ""}}
-                <span>40 seconds since writing</span>
+            {{if eq .Time ""}}
+                <span>Time: Not specified (will be calculated as current time + 40 seconds)</span>
             {{else}}
-                <span>Data: {{.Time}}</span>
+                <span>Time of death: {{.Time}}</span>
             {{end}}
             {{if eq .Cause ""}}
                 <span>Cause: Heart attack</span>
@@ -28,11 +33,11 @@
         </div>
         
         <form method="POST">
-            <label for="name">Enter Name Time Reason</label>
-            <input type="text" id="name" name="name" placeholder="Name Human">
-            <input type="text" id="time" name="time" placeholder="Data death">
-            <input type="text" id="cause" name="cause" placeholder="Reason death">
-            <button>Write Death Note</button>
+            <label for="name">Enter Name, Time and Reason</label>
+            <input type="text" id="name" name="name" placeholder="Name Human" required>
+            <input type="text" id="time" name="time" placeholder="Time of death (optional, format: 03.09.2025 11:24)">
+            <input type="text" id="cause" name="cause" placeholder="Reason of death (optional)">
+            <button>Write in Death Note</button>
         </form>
     </div>
 </body>

@@ -178,3 +178,14 @@ button:hover::before {
     left: -40px;
     transform: rotate(-10deg);
 }
+
+.current-time {
+    text-align: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: rgba(50, 0, 0, 0.3);
+    border: 1px solid #500;
+    font-family: 'MedievalSharp', cursive;
+    color: #c8c8c8;
+    text-shadow: 0 0 5px rgba(200, 0, 0, 0.5);
+}
