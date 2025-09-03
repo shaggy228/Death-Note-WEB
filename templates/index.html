@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Death Note</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="icon" href="../static/death_note_icon.png">
+</head>
+<body>
+    <div class="death-note-container">
+        <div class="skull-decoration skull-1">☠</div>
+        <div class="skull-decoration skull-2">☠</div>
+        
+        <h1>DEATH NOTE</h1>
+        
+        <div class="death-info">
+            <span>Name: {{ .Name }}</span>
+            {{if eq .Cause ""}}
+                <span>40 seconds since writing</span>
+            {{else}}
+                <span>Data: {{.Time}}</span>
+            {{end}}
+            {{if eq .Cause ""}}
+                <span>Cause: Heart attack</span>
+            {{else}}
+                <span>Cause: {{.Cause}}</span>
+            {{end}}
+        </div>
+        
+        <form method="POST">
+            <label for="name">Enter Name Time Reason</label>
+            <input type="text" id="name" name="name" placeholder="Name Human">
+            <input type="text" id="time" name="time" placeholder="Data death">
+            <input type="text" id="cause" name="cause" placeholder="Reason death">
+            <button>Write Death Note</button>
+        </form>
+    </div>
+</body>
+</html>
